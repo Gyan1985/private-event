@@ -17,6 +17,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    @event = Event.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = 'Event not found.'
+    redirect_to events_path
+  end
+
   private
 
   def event_params
