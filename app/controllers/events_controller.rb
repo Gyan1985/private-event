@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[show join leave]
+  before_action :set_event, only: %i[show edit update destroy join leave]
   def index
     @events = Event.page(params[:page])
   end
@@ -15,6 +15,22 @@ class EventsController < ApplicationController
       redirect_to @event, notice: 'Event was successfully created.'
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @event.update(event_params)
+      redirect_to @event, notice: 'Event was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @event.destroy
+      redirect_to root_path, notice: 'Event deleted.'
+    else
+      render :index, status: :unprocessable_entity
     end
   end
 

@@ -1,0 +1,7 @@
+<div class="container">
+  <h3 class='pt-4 mb-4'>Edit Event</h3>
+  <%= render 'event_form', event: @event do |f| %>
+    <%= f.submit "Update Event", class: "btn btn-primary mt-3" %>
+    <%= link_to "Back", :back, style: "text-decoration: none;",  class: "btn btn-secondary mt-3" %>
+  <% end %>
+</div>

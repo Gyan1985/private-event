@@ -1,5 +1,5 @@
 <div class="container">
   <h3 class='pt-4 mb-4'>All Events</h3>
-  <%= render 'list_events', events: @events %>
+  <%= render 'list_events', events: @events, show_actions: false %>
 </div>
 <%= render partial: 'layouts/shared/pagination', locals: { collection: @events } %>
