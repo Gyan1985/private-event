@@ -1,20 +1,4 @@
 <div class="container">
   <h3 class='pt-4 mb-4'>All Events</h3>
-
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @events.each do |event| %>
-        <tr scope="row">
-          <td><%= event.name %></td>
-          <td><%= event.date %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <%= render 'list_events', events: @events %>
 </div>

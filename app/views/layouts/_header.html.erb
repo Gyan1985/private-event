@@ -8,9 +8,11 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
           <li class="nav-item">
-            <%= link_to "Events", root_path, class: "nav-link active" %>
+          <% if current_user %>
+            <%= link_to "My Events", hosted_events_path, class: "nav-link active" %>
+          <% end %>
           </li>
         </ul>
         <form class="">
