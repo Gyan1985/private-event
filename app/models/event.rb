@@ -5,6 +5,9 @@ class Event < ApplicationRecord
   validates :name, presence: true
   validate :date_in_future
 
+  scope :past, -> { where('date < ?', Date.today) }
+  scope :future, -> { where('date >= ?', Date.today) }
+
   private
 
   def date_in_future

@@ -1,0 +1,31 @@
+<div class="container">
+  <h3 class='pt-4 mb-4'>Attendent Events</h3>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Past Events</h5>
+            <% unless @past_events.nil? || @past_events.empty?  %>
+              <%= render 'events/list_events', events: @past_events %>
+              <%= render partial: 'layouts/shared/pagination', locals: { collection: @past_events } %>
+            <% else %>
+              <p>You don't have any events in past</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Upcoming Events</h5>
+            <% unless @upcoming_events.nil? || @upcoming_events.empty? %>
+              <%= render 'events/list_events', events: @upcoming_events %>
+              <%= render partial: 'layouts/shared/pagination', locals: { collection: @upcoming_events } %>
+            <% else %>
+              <p>You don't have any upcoming events</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

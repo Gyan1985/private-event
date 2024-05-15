@@ -1,5 +1,5 @@
 <div class="container">
-  <h3 class='pt-4 mb-4'>New Event</h3>
+  <h3 class='pt-4 mb-4'>Add New Event</h3>
   <%= form_with(model: @event, url: events_path, method: :post, local: true) do |form| %>
     <%= render partial: 'layouts/shared/error_messages', locals: { object: @event } %>
 
