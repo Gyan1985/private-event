@@ -36,7 +36,7 @@ class EventsController < ApplicationController
 
   def join
     event_attendance = @event.attendances.new(attendee: current_user)
-    if event_attendance.save!
+    if event_attendance.save
       redirect_to @event, notice: 'You have successfully joined the event.'
     else
       redirect_to @event, status: :unprocessable_entity
